@@ -53,13 +53,13 @@ export default function BlogList({ blogs, onEdit, onDelete, hasBlogs }: BlogList
               {blog.author && (
                 <span className="flex items-center gap-1 text-xs">
                   <User className="h-3 w-3" />
-                  {blog.author}
+                  {blog.author.name || blog.author.email}
                 </span>
               )}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{blog.content}</p>
+            <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{blog.excerpt || blog.description || ""}</p>
             {blog.category && (
               <div className="mb-4">
                 <Badge variant="secondary">{blog.category}</Badge>
